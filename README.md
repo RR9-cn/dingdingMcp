@@ -4,22 +4,8 @@
 
 ## 功能
 
-- 发送文本消息到钉钉群
-- 发送 Markdown 格式消息到钉钉群
 - 创建钉钉待办任务
-- 查询钉钉待办任务列表
-- 获取钉钉待办任务详情
-- 更新钉钉待办任务状态
-- 删除钉钉待办任务
 
-## 环境变量配置
-
-### 钉钉群机器人配置
-
-要使用钉钉群机器人功能，需要设置以下环境变量：
-
-- `DINGTALK_BOT_ACCESS_TOKEN`: 钉钉群机器人的访问令牌（必需）
-- `DINGTALK_BOT_SECRET`: 钉钉群机器人的密钥（可选，如果机器人启用了加签安全设置）
 
 ### 钉钉待办功能配置
 
@@ -46,41 +32,6 @@ npm run build
 
 ```bash
 npm start
-```
-
-## API 说明
-
-### 发送文本消息
-
-```typescript
-// 发送简单文本消息
-const response = await dingtalkBot.sendText("这是一条测试消息");
-
-// 发送文本消息并@特定用户
-const response = await dingtalkBot.sendText("这是一条测试消息", [
-  "13800138000",
-]);
-
-// 发送文本消息并@所有人
-const response = await dingtalkBot.sendText("这是一条测试消息", [], true);
-```
-
-### 发送 Markdown 消息
-
-```typescript
-// 发送Markdown消息
-const response = await dingtalkBot.sendMarkdown(
-  "标题",
-  "## 二级标题\n内容包含**加粗**和*斜体*"
-);
-
-// 发送Markdown消息并@所有人
-const response = await dingtalkBot.sendMarkdown(
-  "标题",
-  "## 二级标题\n内容包含**加粗**和*斜体*",
-  [],
-  true
-);
 ```
 
 ### 创建待办任务
@@ -212,19 +163,3 @@ await server.delete_todo_task({
   taskId: "任务ID",
 });
 ```
-
-## 获取钉钉应用配置
-
-1. 前往[钉钉开放平台](https://open.dingtalk.com/)创建或管理你的应用
-2. 获取应用的 AppKey 和 AppSecret
-3. 在应用权限管理中添加待办权限
-
-## 获取钉钉群机器人配置
-
-1. 在钉钉群中添加自定义机器人
-2. 获取机器人的 webhook URL，从中提取 access_token
-3. 如果启用了安全设置，获取机器人的密钥
-
-## 许可证
-
-MIT
