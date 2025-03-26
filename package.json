@@ -1,0 +1,23 @@
+{
+  "name": "dingding-mcp-server",
+  "bin": {
+    "dingding-mcp-server": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && shebang build/index.js",
+    "start": "node build/index.js",
+    "dev": "npm run build && npm start"
+  },
+  "files": [
+    "build"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "append-shebang": "^0.0.3",
+    "typescript": "^5.8.2"
+  }
+}
